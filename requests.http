@@ -1,0 +1,22 @@
+POST http://localhost:8081/api/v1/mysql/query
+Content-Type: application/json
+X-Hasura-DataConnector-Config: {"jdbc_url": "jdbc:mysql://localhost:3306/Chinook?user=root&password=Password123&disableMariaDbDriver=true"}
+X-Hasura-DataConnector-SourceName: foo
+
+{
+  "target": {
+    "type": "table",
+    "name": [
+      "Artist"
+    ]
+  },
+  "query": {
+    "limit": 1,
+    "fields": {
+      "Name": {
+        "type": "column",
+        "column": "Name"
+      }
+    }
+  }
+}

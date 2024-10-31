@@ -1,0 +1,16 @@
+{
+  "otherSchemas": {},
+  "configSchema": {
+    "type": "object",
+    "nullable": false,
+    "properties": {
+      "jdbc_url": {
+        "type": "string",
+        "nullable": false
+      }
+    },
+    "additionalProperties": {
+      "type": "string"
+    }
+  }
+}

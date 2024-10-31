@@ -1,0 +1,16 @@
+{
+  "otherSchemas": {},
+  "configSchema": {
+    "type": "object",
+    "nullable": false,
+    "properties": {
+      "name": {
+        "type": "string",
+        "nullable": false
+      }
+    },
+    "additionalProperties": {
+      "type": "string"
+    }
+  }
+}
