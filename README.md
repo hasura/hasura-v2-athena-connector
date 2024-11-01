@@ -64,9 +64,6 @@ From `graphql-engine-mono/pro/dc-agents/super-connector` run:
 docker build -f app/src/main/docker/Dockerfile.jvm -t hasura/data-wrapper-jvm:1.0.0-SNAPSHOT app
 ```
 
-Note: our current instance of the `Dockerfile` has been modified to
-accommodate JPMC's security scan) to build the docker image.
-
 #### Bring up the docker-compose file
 
 From `graphql-engine-mono/pro/dc-agents/super-connector` run:
