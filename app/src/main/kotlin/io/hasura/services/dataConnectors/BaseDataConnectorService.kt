@@ -112,18 +112,14 @@ abstract class BaseDataConnectorService(
     @WithSpan
     open fun mkDSLCtx(sourceName: DatasourceName, config: Map<String, Any>): DSLContext {
         val connInfo = mkDatasourceConnectionInfo(sourceName, config)
-        val datasource = cacheManager.dataSourceCache.get(connInfo) {
-            dataSourceService.createDataSourceFromConnInfo(connInfo, it.config)
-        }
+        val datasource = dataSourceService.createDataSourceFromConnInfo(connInfo, config)
         return DSL.using(datasource, jooqDialect, jooqSettings)
     }
 
     @WithSpan
     override fun getSchema(sourceName: DatasourceName, config: Map<String, Any>, schemaRequest: SchemaRequest): Schema {
         val connInfo = mkDatasourceConnectionInfo(sourceName, config)
-        val dataSource = cacheManager.dataSourceCache.get(connInfo) {
-            dataSourceService.createDataSourceFromConnInfo(connInfo, it.config)
-        }
+        val dataSource = dataSourceService.createDataSourceFromConnInfo(connInfo, config)
         return executeGetSchema(dataSource, connInfo, schemaRequest)
     }
 
